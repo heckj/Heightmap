@@ -32,7 +32,8 @@ let package = Package(
             name: "Heightmap",
             dependencies: [
                 .product(name: "Noise", package: "swift-noise"),
-            ]
+            ],
+            swiftSettings: globalSwiftSettings
         ),
         .testTarget(
             name: "HeightmapTests",
