@@ -8,7 +8,7 @@ final class NoiseRangeTests: XCTestCase {
         var max = 0.0
         for i: Int in 0 ... 100_000 {
             let result = noise.evaluate(0, Double(i))
-            print(result)
+            // print(result)
             min = Swift.min(result, min)
             max = Swift.max(result, max)
         }
