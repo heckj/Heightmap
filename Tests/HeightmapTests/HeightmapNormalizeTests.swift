@@ -45,11 +45,22 @@ final class HeightmapNormalizeTests: XCTestCase {
     func testNormalizeToUnitValuesHighAndLowExtended() throws {
         let data: [Float] = [-2.0, -1, 0, 1, 1, 2.0]
         let h = Heightmap(data, width: 3)
-        // default should be no change when data is already within 0.0...1.0
+
         let expected: [Float] = [0.0, 0.25, 0.5, 0.75, 0.75, 1.0]
         let converted = h.normalize().contents
         for i in 0 ..< data.count {
             XCTAssertEqual(converted[i], expected[i], accuracy: 0.01)
+        }
+    }
+
+    func testInPlaceNormalized() throws {
+        let data: [Float] = [-2.0, -1, 0, 1, 1, 2.0]
+        var h = Heightmap(data, width: 3)
+        h.normalized()
+
+        let expected: [Float] = [0.0, 0.25, 0.5, 0.75, 0.75, 1.0]
+        for i in 0 ..< h.count {
+            XCTAssertEqual(h.contents[i], expected[i], accuracy: 0.01)
         }
     }
 }
