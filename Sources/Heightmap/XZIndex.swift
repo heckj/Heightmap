@@ -7,8 +7,8 @@ public struct XZIndex: Sendable, Hashable {
 
     /// Creates a two-dimensional coordinate index to a height map.
     /// - Parameters:
-    ///   - x: <#x description#>
-    ///   - z: <#z description#>
+    ///   - x: The width coordinate in the height map.
+    ///   - z: The depth coordinate in the height map.
     public init(x: Int, z: Int) {
         self.x = x
         self.z = z
