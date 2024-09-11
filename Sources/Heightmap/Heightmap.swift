@@ -72,3 +72,4 @@ extension Heightmap: Collection {
     }
 }
 
+extension Heightmap: Codable {}

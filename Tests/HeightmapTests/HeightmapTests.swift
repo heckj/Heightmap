@@ -48,7 +48,7 @@ final class HeightmapTests: XCTestCase {
             let _ = Heightmap(width: 1000, height: 1000, seed: 23623)
         }
     }
-    
+
     func testHeightmapCollectionToArray() throws {
         let h = Heightmap(_contents: [0, 0, 0, 0, 0, -1], width: 3)
         let externalize = Array(h)
