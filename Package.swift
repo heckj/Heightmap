@@ -30,16 +30,13 @@ let package = Package(
     targets: [
         .target(
             name: "Heightmap",
-            dependencies: [
-                .product(name: "Noise", package: "swift-noise"),
-            ],
+            dependencies: [],
             swiftSettings: globalSwiftSettings
         ),
         .testTarget(
             name: "HeightmapTests",
             dependencies: [
                 "Heightmap",
-                .product(name: "Noise", package: "swift-noise"),
             ]
         ),
     ]
