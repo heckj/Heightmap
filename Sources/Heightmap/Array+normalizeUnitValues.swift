@@ -1,7 +1,7 @@
-extension Array where Element == Float {
+extension [Float] {
     func normalizeUnitValues(expand: Bool = false) -> Self {
-        if self.isEmpty { return self }
-        var minValue: Float = self[self.startIndex]
+        if isEmpty { return self }
+        var minValue: Float = self[startIndex]
         var maxValue: Float = minValue
         for floatValue in self {
             minValue = Swift.min(minValue, floatValue)
@@ -12,7 +12,7 @@ extension Array where Element == Float {
         }
         let range: Float = maxValue - minValue
         let offset: Float = 0.0 - minValue
-        return self.map { floatValue in
+        return map { floatValue in
             (floatValue + offset) / range
         }
     }
