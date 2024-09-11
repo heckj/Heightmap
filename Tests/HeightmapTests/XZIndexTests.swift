@@ -30,7 +30,7 @@ final class XZIndexTests: XCTestCase {
     }
 
     func testHeightmapInitializer() throws {
-        let h = Heightmap(_contents: [0, 0, 0, 0, 0, -1], width: 5)
+        let h = Heightmap([0, 0, 0, 0, 0, -1], width: 5)
         XCTAssertEqual(h.width, 5)
         XCTAssertEqual(h.height, 1)
 

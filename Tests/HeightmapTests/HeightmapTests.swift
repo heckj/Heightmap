@@ -3,7 +3,7 @@ import XCTest
 
 final class HeightmapTests: XCTestCase {
     func testHeightmapInitializer() throws {
-        let h = Heightmap(_contents: [0, 0, 0, 0, 0, -1], width: 5)
+        let h = Heightmap([0, 0, 0, 0, 0, -1], width: 5)
         XCTAssertEqual(h.width, 5)
         XCTAssertEqual(h.height, 1)
 
@@ -11,13 +11,13 @@ final class HeightmapTests: XCTestCase {
     }
 
     func testHeightmapSubscripts() throws {
-        let h = Heightmap(_contents: [0, 0, 0, 0, 0, -1], width: 3)
+        let h = Heightmap([0, 0, 0, 0, 0, -1], width: 3)
         XCTAssertEqual(h[2, 1], -1)
         XCTAssertEqual(h[XZIndex(x: 2, z: 1)], -1)
     }
 
     func testHeightmapSequence() throws {
-        let h = Heightmap(_contents: [0, 0, 0, 0, 0, -1], width: 3)
+        let h = Heightmap([0, 0, 0, 0, 0, -1], width: 3)
         XCTAssertEqual(h.width, 3)
         XCTAssertEqual(h.height, 2)
 
@@ -31,7 +31,7 @@ final class HeightmapTests: XCTestCase {
     }
 
     func testHeightmapCollection() throws {
-        let h = Heightmap(_contents: [0, 0, 0, 0, 0, -1], width: 3)
+        let h = Heightmap([0, 0, 0, 0, 0, -1], width: 3)
         XCTAssertEqual(h[0], 0)
     }
 
@@ -50,7 +50,7 @@ final class HeightmapTests: XCTestCase {
     }
 
     func testHeightmapCollectionToArray() throws {
-        let h = Heightmap(_contents: [0, 0, 0, 0, 0, -1], width: 3)
+        let h = Heightmap([0, 0, 0, 0, 0, -1], width: 3)
         let externalize = Array(h)
         XCTAssertEqual(externalize.count, h.count)
     }
