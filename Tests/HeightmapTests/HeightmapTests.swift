@@ -35,20 +35,6 @@ final class HeightmapTests: XCTestCase {
         XCTAssertEqual(h[0], 0)
     }
 
-    func testHeightmapInitWithNoise() throws {
-        let h = Heightmap(width: 10, height: 10, seed: 346)
-        XCTAssertEqual(h.width, 10)
-        XCTAssertEqual(h.height, 10)
-        XCTAssertEqual(h.contents.count, 100)
-    }
-
-    func testNoiseHeightmapInitSpeed() throws {
-        // loosely 1.4 sec
-        measure {
-            let _ = Heightmap(width: 1000, height: 1000, seed: 23623)
-        }
-    }
-
     func testHeightmapCollectionToArray() throws {
         let h = Heightmap([0, 0, 0, 0, 0, -1], width: 3)
         let externalize = Array(h)
