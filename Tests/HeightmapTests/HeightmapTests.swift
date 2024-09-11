@@ -22,7 +22,7 @@ final class HeightmapTests: XCTestCase {
         XCTAssertEqual(h.height, 2)
 
         XCTAssertEqual(h.contents.count, 6)
-
+        XCTAssertEqual(h.count, 6)
         var count = 0
         for _ in h {
             count += 1
@@ -47,5 +47,11 @@ final class HeightmapTests: XCTestCase {
         measure {
             let _ = Heightmap(width: 1000, height: 1000, seed: 23623)
         }
+    }
+    
+    func testHeightmapCollectionToArray() throws {
+        let h = Heightmap(_contents: [0, 0, 0, 0, 0, -1], width: 3)
+        let externalize = Array(h)
+        XCTAssertEqual(externalize.count, h.count)
     }
 }
