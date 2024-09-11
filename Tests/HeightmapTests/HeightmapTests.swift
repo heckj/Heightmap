@@ -10,6 +10,14 @@ final class HeightmapTests: XCTestCase {
         XCTAssertEqual(h.contents.count, 5)
     }
 
+    func testHeightmapInitializerWithExplicitLength() throws {
+        let h = Heightmap([0, 0, 0, 0, 0, -1], width: 2, depth: 2)
+        XCTAssertEqual(h.width, 2)
+        XCTAssertEqual(h.height, 2)
+
+        XCTAssertEqual(h.contents.count, 4)
+    }
+
     func testHeightmapSubscripts() throws {
         let h = Heightmap([0, 0, 0, 0, 0, -1], width: 3)
         XCTAssertEqual(h[2, 1], -1)
