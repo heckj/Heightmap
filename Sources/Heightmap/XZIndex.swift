@@ -1,6 +1,6 @@
 public struct XZIndex: Sendable, Hashable {
-    let x: Int
-    let z: Int
+    public let x: Int
+    public let z: Int
 
     public init(x: Int, z: Int) {
         self.x = x
@@ -8,7 +8,7 @@ public struct XZIndex: Sendable, Hashable {
     }
 
     @inlinable
-    static func strideToXZ(_ stride: Int, width: Int) -> XZIndex {
+    public static func strideToXZ(_ stride: Int, width: Int) -> XZIndex {
         var z = 0
         if stride > (width - 1) {
             z = stride / width
@@ -18,7 +18,7 @@ public struct XZIndex: Sendable, Hashable {
     }
 
     @inlinable
-    static func XZtoStride(x: Int, z: Int, width: Int) -> Int {
+    public static func XZtoStride(x: Int, z: Int, width: Int) -> Int {
         let minorOffset = z * width
         return minorOffset + x
     }
