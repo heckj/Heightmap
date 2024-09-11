@@ -57,7 +57,7 @@ extension Heightmap: Collection {
     }
 
     public var endIndex: Int {
-        contents.count - 1
+        contents.count
     }
 
     public subscript(linearindex: Int) -> Float {
@@ -71,3 +71,4 @@ extension Heightmap: Collection {
         }
     }
 }
+
