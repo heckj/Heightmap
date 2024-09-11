@@ -1,6 +1,6 @@
 public extension Heightmap {
-    func normalize(expand: Bool = false) -> Self {
-        if contents.isEmpty { return self }
+    static func normalize(_ contents: [Float], expand: Bool = false) -> [Float] {
+        if contents.isEmpty { return contents }
         var minValue: Float = contents[0]
         var maxValue: Float = minValue
         for floatValue in contents {
@@ -8,7 +8,7 @@ public extension Heightmap {
             maxValue = Swift.max(maxValue, floatValue)
         }
         if minValue >= 0, maxValue <= 1.0, !expand {
-            return self
+            return contents
         }
         var normalizedData: [Float] = []
         let range: Float = maxValue - minValue
@@ -16,6 +16,25 @@ public extension Heightmap {
         for floatValue in contents {
             normalizedData.append((floatValue + offset) / range)
         }
+        return normalizedData
+    }
+
+    func normalize(expand: Bool = false) -> Self {
+        let normalizedData = Self.normalize(contents, expand: expand)
         return Heightmap(normalizedData, width: width)
+    }
+
+    mutating func normalized(expand: Bool = false) {
+        contents = Self.normalize(contents, expand: expand)
+    }
+
+    init(_ contents: [UInt8], width: Int) {
+        self.width = width
+        height = contents.count / width
+        // make a copy of the array, truncating any extra stuff...
+        let temp = contents[0 ..< (height * width)].map { byte in
+            Float(byte)
+        }
+        self.contents = Self.normalize(temp)
     }
 }
