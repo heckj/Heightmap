@@ -28,13 +28,13 @@ public extension Heightmap {
         contents = Self.normalize(contents, expand: expand)
     }
 
-    init(_ contents: [UInt8], width: Int) {
+    init(bytes: [UInt8], width: Int) {
         self.width = width
-        height = contents.count / width
+        height = bytes.count / width
         // make a copy of the array, truncating any extra stuff...
-        let temp = contents[0 ..< (height * width)].map { byte in
+        let temp = bytes[0 ..< (height * width)].map { byte in
             Float(byte)
         }
-        self.contents = Self.normalize(temp)
+        contents = Self.normalize(temp)
     }
 }
