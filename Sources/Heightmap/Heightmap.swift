@@ -3,18 +3,18 @@ public struct Heightmap: Sendable, Hashable {
     public let width: Int
     public let height: Int
 
-    init(_contents: [Float], width: Int) {
+    public init(_ contents: [Float], width: Int) {
         self.width = width
-        height = _contents.count / width
+        height = contents.count / width
         // make a copy of the array, truncating any extra stuff...
-        contents = Array(_contents[0 ..< (height * width)])
+        self.contents = Array(contents[0 ..< (height * width)])
     }
 
-    subscript(_ x: Int, _ z: Int) -> Float {
+    public subscript(_ x: Int, _ z: Int) -> Float {
         contents[XZIndex.XZtoStride(x: x, z: z, width: width)]
     }
 
-    subscript(_ xz: XZIndex) -> Float {
+    public subscript(_ xz: XZIndex) -> Float {
         contents[XZIndex.XZtoStride(x: xz.x, z: xz.z, width: width)]
     }
 }
