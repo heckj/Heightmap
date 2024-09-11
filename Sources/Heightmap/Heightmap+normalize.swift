@@ -9,12 +9,9 @@ public extension Heightmap {
     }
 
     init(bytes: [UInt8], width: Int) {
-        self.width = width
-        height = bytes.count / width
-        // make a copy of the array, truncating any extra stuff...
-        let temp = bytes[0 ..< (height * width)].map { byte in
+        let temp = bytes.map { byte in
             Float(byte)
         }
-        contents = temp.normalizeUnitValues()
+        self.init(normalizing: temp, width: width)
     }
 }
