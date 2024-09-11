@@ -63,4 +63,14 @@ final class HeightmapNormalizeTests: XCTestCase {
             XCTAssertEqual(h.contents[i], expected[i], accuracy: 0.01)
         }
     }
+
+    func testNormalizeOnInit() throws {
+        let data: [Float] = [-2.0, -1, 0, 1, 1, 2.0]
+        let h = Heightmap(normalizing: data, width: 3)
+
+        let expected: [Float] = [0.0, 0.25, 0.5, 0.75, 0.75, 1.0]
+        for i in 0 ..< data.count {
+            XCTAssertEqual(h.contents[i], expected[i], accuracy: 0.01)
+        }
+    }
 }
