@@ -23,4 +23,3 @@
 
 - ``normalize(expand:)``
 - ``normalized(expand:)``
-- ``normalize(_:expand:)``
