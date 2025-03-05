@@ -45,7 +45,7 @@ public struct Heightmap: Sendable, Hashable {
 
     /// Creates a new height map normalizing the collection of floating point values that you provide to unit values.
     /// - Parameters:
-    ///   - contents: The array of floating point values that represents the heightmap.
+    ///   - normalizing: The array of floating point values that represents the heightmap.
     ///   - width: The width of the height map
     ///
     /// The normalization process only changes the values if the collection of floating point values
